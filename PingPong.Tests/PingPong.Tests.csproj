@@ -10,7 +10,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ping-pong\ping-pong.csproj" />  
+    <ProjectReference Include="..\ping-pong\PingPong.csproj" />  
   </ItemGroup>
 
 </Project>
