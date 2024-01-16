@@ -19,8 +19,35 @@ namespace PingPong.Models  // Namespace
       for (int index = 1; index <= userInput; index++)
       {
         gameList.Add(index);
-      }
+     }
       return gameList;
+    }
+    public static List<string> ConvertList(List<int> gameList)
+    {
+      List<string> convertedList = new List<string>();
+      foreach (int num in gameList)
+      {
+        string replacement = num.ToString();
+
+        if (num % 3 == 0 && num % 5 == 0)
+        {
+          replacement = "ping-pong";
+
+        }
+        else if (num % 3 == 0)
+        {
+          replacement = "ping";
+
+        }
+        else if (num % 5 == 0)
+
+         replacement = "pong";
+      
+       convertedList.Add(replacement);
+
+  _instances.Add(new Game(num));
+    }
+    return convertedList;
     }
 
     public static List<Game> GetAll()

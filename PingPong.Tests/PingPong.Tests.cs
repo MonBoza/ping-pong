@@ -8,10 +8,10 @@ namespace PingPong.Tests
   [TestClass]
   public class PingPongTests : IDisposable
   {
-    public void Dispose()
-    {
-      Game.ClearAll();
-    }
+      public void Dispose()
+      {
+        Game.ClearAll();
+      }
 
     [TestMethod]
     public void GameConstructor_CreatesInstanceOfGame_Game()
@@ -39,13 +39,23 @@ namespace PingPong.Tests
     }
 
     [TestMethod]
-
-    public void GetAll_ReturnNumberList_List()
+    public void CreateList_ReturnNumberList_List()
     {
       int userNumber = 5;
       Game game1 = new Game(userNumber);
       List<int> expected = new List<int> { 1, 2, 3, 4, 5 };
       List<int> actualResult = Game.CreateList(userNumber);
+      CollectionAssert.AreEqual(expected, actualResult);
+    }
+
+    [TestMethod]
+
+    public void ConvertList_ReturnGameList_List()
+    {
+      int userNumber = 5;
+      List<int> gameList = Game.CreateList(userNumber);
+      List<string> expected = new List<string> {"1", "2", "ping", "4", "pong" };
+      List<string> actualResult = Game.ConvertList(gameList);
       CollectionAssert.AreEqual(expected, actualResult);
     }
   }
